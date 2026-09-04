@@ -6,10 +6,10 @@ const app= express();
 
 const postRoutes=require('./routes/posts');
 const authRoutes=require('./routes/auth');
-
+const commentRoutes = require("./routes/commentRoutes");
 app.use(cors());
 app.use(express.json());
-
+app.use("/api/posts", commentRoutes);
 mongoose.connect('mongodb+srv://Devdrogba:samblog123@cluster0.8sdck76.mongodb.net/?appName=Cluster0').then(()=>{
   console.log("connected to mongodb")
 }).catch(err=> console.log(err));
